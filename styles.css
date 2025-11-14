@@ -176,6 +176,13 @@ header {
 	gap: 1.5rem;
 }
 
+.card .button {
+	margin-top: auto;
+	width: 100%;
+	justify-content: center;
+	min-height: 48px;
+}
+
 .card h2 {
 	font-family: "Fraunces", serif;
 	font-size: 28px;
@@ -189,6 +196,7 @@ header {
 .button {
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	gap: 0.5rem;
 	padding: 0.75rem 1.5rem;
 	background-color: var(--dpi-teal);
@@ -200,6 +208,8 @@ header {
 	font-weight: 600;
 	letter-spacing: 0.1px;
 	transition: background-color 0.2s ease;
+	text-align: center;
+	white-space: normal;
 }
 
 .button:hover {
