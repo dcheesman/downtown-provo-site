@@ -9,10 +9,72 @@
 }
 
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-	line-height: 1.6;
+	font-family: "Inter", "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.7;
+	font-weight: 400;
 	color: #333;
 	background-color: #fff;
+}
+
+/* Typography scale - Modular rhythm 1.25: 18 → 22 → 28 → 35 → 44 → 56 */
+h1 {
+	font-family: "Fraunces", serif;
+	font-size: 56px;
+	line-height: 1.1;
+	letter-spacing: -0.2px;
+	font-weight: 700;
+	color: #333;
+}
+
+h2 {
+	font-family: "Fraunces", serif;
+	font-size: 44px;
+	line-height: 1.1;
+	letter-spacing: -0.2px;
+	font-weight: 700;
+	color: #333;
+}
+
+h3 {
+	font-family: "Fraunces", serif;
+	font-size: 35px;
+	line-height: 1.1;
+	letter-spacing: -0.2px;
+	font-weight: 700;
+	color: #333;
+}
+
+h4 {
+	font-family: "Fraunces", serif;
+	font-size: 28px;
+	line-height: 1.15;
+	letter-spacing: -0.1px;
+	font-weight: 700;
+	color: #333;
+}
+
+/* Additional heading sizes following the scale */
+h5 {
+	font-family: "Fraunces", serif;
+	font-size: 22px;
+	line-height: 1.2;
+	font-weight: 700;
+	color: #333;
+}
+
+p {
+	font-family: "Inter", "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.7;
+	font-weight: 400;
+}
+
+small {
+	font-family: "Inter", "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+	font-weight: 400;
 }
 
 /* Header */
@@ -48,8 +110,8 @@ header {
 }
 
 .about-text {
-	font-size: 1.125rem;
-	line-height: 1.8;
+	font-size: 18px;
+	line-height: 1.7;
 	color: #555;
 	text-align: center;
 	max-width: 800px;
@@ -105,7 +167,11 @@ header {
 }
 
 .card h2 {
-	font-size: 1.5rem;
+	font-family: "Fraunces", serif;
+	font-size: 28px;
+	line-height: 1.15;
+	letter-spacing: -0.1px;
+	font-weight: 700;
 	color: #333;
 	margin: 0;
 }
@@ -119,7 +185,10 @@ header {
 	color: #fff;
 	text-decoration: none;
 	border-radius: 4px;
-	font-weight: 500;
+	font-family: "Inter", "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 0.1px;
 	transition: background-color 0.2s ease;
 }
 
@@ -142,12 +211,20 @@ header {
 }
 
 .maps-content h1 {
-	font-size: 2rem;
+	font-family: "Fraunces", serif;
+	font-size: 56px;
+	line-height: 1.1;
+	letter-spacing: -0.2px;
+	font-weight: 700;
 	margin-bottom: 1rem;
 	color: #333;
 }
 
 .maps-content p {
+	font-family: "Inter", sans-serif;
+	font-size: 18px;
+	line-height: 1.7;
+	font-weight: 400;
 	margin-bottom: 2rem;
 	color: #666;
 	max-width: 800px;
@@ -174,6 +251,56 @@ header {
 }
 
 /* Responsive design */
+/* Mobile adjustments: Reduce each heading by one step */
+@media (max-width: 767px) {
+	h1 {
+		font-size: 44px;
+		line-height: 1.1;
+		letter-spacing: -0.2px;
+	}
+
+	h2 {
+		font-size: 35px;
+		line-height: 1.1;
+		letter-spacing: -0.2px;
+	}
+
+	h3 {
+		font-size: 28px;
+		line-height: 1.15;
+		letter-spacing: -0.1px;
+	}
+
+	h4 {
+		font-size: 22px;
+		line-height: 1.2;
+	}
+
+	.maps-content h1 {
+		font-size: 44px;
+		line-height: 1.1;
+		letter-spacing: -0.2px;
+	}
+
+	.card h2 {
+		font-size: 28px;
+		line-height: 1.15;
+		letter-spacing: -0.1px;
+	}
+
+	body {
+		font-size: 17px;
+	}
+
+	p {
+		font-size: 17px;
+	}
+
+	.about-text {
+		font-size: 17px;
+	}
+}
+
 @media (min-width: 768px) {
 	.hub-cards .container {
 		grid-template-columns: repeat(2, 1fr);
