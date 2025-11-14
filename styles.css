@@ -155,7 +155,12 @@ header {
 	padding: 3rem 0;
 }
 
-.hub-cards .container {
+.section-header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.cards-grid {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 2rem;
@@ -328,13 +333,13 @@ footer p {
 }
 
 @media (min-width: 768px) {
-	.hub-cards .container {
+	.cards-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media (min-width: 1024px) {
-	.hub-cards .container {
+	.cards-grid {
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
