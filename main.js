@@ -116,24 +116,26 @@
 				if (embedUrl) {
 					console.log('Video loaded from Google Sheet');
 					iframe.src = embedUrl;
-					return;
+					return; // Success, we're done
 				}
-				// Fall back to JSON
+				// Google Sheet failed, try JSON
 				return fetchFromJson();
 			})
 			.then(embedUrl => {
-				if (embedUrl && !iframe.src) {
+				// This will be called with the result of fetchFromJson() if Google Sheet failed
+				// or undefined if Google Sheet succeeded
+				if (embedUrl) {
 					console.log('Video loaded from JSON config');
 					iframe.src = embedUrl;
-				} else if (!iframe.src) {
-					// Final fallback to default
+				} else if (!iframe.src || iframe.src === '') {
+					// Both failed, use fallback
 					console.log('Using fallback video URL:', defaultUrl);
 					iframe.src = defaultEmbedUrl;
 				}
 			})
 			.catch(error => {
-				console.warn('Error loading video config:', error);
-				if (!iframe.src) {
+				// Catch any errors in the chain
+				if (!iframe.src || iframe.src === '') {
 					console.log('Using fallback video URL due to error:', defaultUrl);
 					iframe.src = defaultEmbedUrl;
 				}
