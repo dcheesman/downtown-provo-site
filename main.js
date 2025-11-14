@@ -60,7 +60,12 @@
 				return null;
 			})
 			.catch(error => {
-				console.warn('Could not fetch from Google Sheet:', error);
+				// Log CORS or other fetch errors
+				if (error.name === 'TypeError' || error.message.includes('Failed to fetch') || error.message.includes('CORS')) {
+					console.warn('CORS issue: Could not fetch from Google Sheet (likely due to local development). Falling back to default video.');
+				} else {
+					console.warn('Could not fetch from Google Sheet:', error);
+				}
 				return null;
 			});
 	}
@@ -101,13 +106,15 @@
 			return;
 		}
 
-		// Default fallback URL
-		const defaultUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
+		// Default fallback URL (YouTube watch URL - will be converted to embed format)
+		const defaultUrl = 'https://www.youtube.com/watch?v=M61QjWqvWxY';
+		const defaultEmbedUrl = convertToEmbedUrl(defaultUrl);
 
 		// Try Google Sheet first, then JSON, then default
 		fetchFromGoogleSheet()
 			.then(embedUrl => {
 				if (embedUrl) {
+					console.log('Video loaded from Google Sheet');
 					iframe.src = embedUrl;
 					return;
 				}
@@ -116,16 +123,19 @@
 			})
 			.then(embedUrl => {
 				if (embedUrl && !iframe.src) {
+					console.log('Video loaded from JSON config');
 					iframe.src = embedUrl;
 				} else if (!iframe.src) {
 					// Final fallback to default
-					iframe.src = defaultUrl;
+					console.log('Using fallback video URL:', defaultUrl);
+					iframe.src = defaultEmbedUrl;
 				}
 			})
 			.catch(error => {
 				console.warn('Error loading video config:', error);
 				if (!iframe.src) {
-					iframe.src = defaultUrl;
+					console.log('Using fallback video URL due to error:', defaultUrl);
+					iframe.src = defaultEmbedUrl;
 				}
 			});
 	}
