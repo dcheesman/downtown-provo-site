@@ -270,6 +270,53 @@ header {
 	border: none;
 }
 
+/* Poll page */
+.poll-content {
+	padding: 2rem 0;
+}
+
+.poll-content h1 {
+	font-family: "Fraunces", serif;
+	font-size: 56px;
+	line-height: 1.1;
+	letter-spacing: -0.2px;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	color: #333;
+}
+
+.poll-content p {
+	font-family: "Inter", sans-serif;
+	font-size: 18px;
+	line-height: 1.7;
+	font-weight: 400;
+	margin-bottom: 2rem;
+	color: #666;
+	max-width: 800px;
+}
+
+.poll-container {
+	position: relative;
+	width: 100%;
+	max-width: 1200px;
+	margin: 2rem auto 0;
+	padding: 0 1.5rem;
+	min-height: 600px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	overflow: hidden;
+	background-color: #fafafa;
+}
+
+.poll-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
 /* Footer */
 footer {
 	width: 100%;
@@ -312,6 +359,12 @@ footer p {
 	}
 
 	.maps-content h1 {
+		font-size: 44px;
+		line-height: 1.1;
+		letter-spacing: -0.2px;
+	}
+
+	.poll-content h1 {
 		font-size: 44px;
 		line-height: 1.1;
 		letter-spacing: -0.2px;
